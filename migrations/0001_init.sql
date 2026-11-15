@@ -76,3 +76,4 @@ CREATE TABLE IF NOT EXISTS orders (
   grand_total INTEGER NOT NULL DEFAULT 0,
   sort_order INTEGER NOT NULL DEFAULT 0
 );
+
