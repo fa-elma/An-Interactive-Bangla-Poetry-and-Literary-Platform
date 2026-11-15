@@ -276,7 +276,7 @@ export default function AdminDashboard({
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-semibold">
               <Database className="w-3.5 h-3.5" />
               {dbConnected
-                ? 'ডাটাবেস সচল (server/db/sahityakanon_db.json)'
+                ? 'Cloudflare D1 ডাটাবেস সচল (sahityakanon-db)'
                 : 'লোকাল ডাটাবেস সিঙ্ক সচল'}
             </span>
           </div>

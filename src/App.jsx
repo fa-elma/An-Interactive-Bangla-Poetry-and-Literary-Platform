@@ -111,6 +111,7 @@ export default function App() {
   // Backend DB Connection Status
   const [dbConnected, setDbConnected] = useState(false);
   const initialLoadCompleted = useRef(false);
+  const skipNextSyncRef = useRef(false);
 
   // UI Navigation & Filter State
   const [activeTab, setActiveTab] = useState('explore'); // 'explore' | 'bookshop' | 'submit' | 'bookmarks' | 'admin'
@@ -132,6 +133,7 @@ export default function App() {
       .then((res) => (res.ok ? res.json() : Promise.reject()))
       .then((data) => {
         if (!mounted || !data.ok) return;
+        skipNextSyncRef.current = true;
         if (Array.isArray(data.users) && data.users.length > 0) setUsers(data.users);
         if (Array.isArray(data.works) && data.works.length > 0) setWorks(data.works);
         if (Array.isArray(data.books) && data.books.length > 0) setBooks(data.books);
@@ -155,6 +157,10 @@ export default function App() {
     localStorage.setItem('sahityakanon_orders_v1', JSON.stringify(orders));
 
     if (!initialLoadCompleted.current) return;
+    if (skipNextSyncRef.current) {
+      skipNextSyncRef.current = false;
+      return;
+    }
     fetch('/api/db/sync', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
