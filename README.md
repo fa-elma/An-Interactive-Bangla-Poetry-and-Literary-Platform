@@ -1,16 +1,51 @@
-# React + Vite
+# সাহিত্যকানন (SahityaKanon) — An Interactive Bangla Poetry & Literary Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**সাহিত্যকানন** হলো একটি পূর্ণাঙ্গ বাংলা সাহিত্য ও গ্রন্থ প্ল্যাটফর্ম (React + Tailwind CSS + Node REST Database Final Project)। এখানে লেখক ও পাঠকগণ বাংলা **কবিতা, পত্র (চিঠি), ছোটগল্প এবং বই** পাঠ করতে পারেন, **লগইন করে নিজেদের লেখা বা বই প্রকাশ** করতে পারেন, **অনলাইন গ্রন্থবিপণি (Bookshop)** থেকে প্রিয় বই অর্ডার করতে পারেন এবং **অ্যাডমিন প্যানেল** থেকে পুরো ডাটাবেস নিয়ন্ত্রণ করতে পারেন।
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ প্রধান বৈশিষ্ট্যসমূহ (Key Features)
 
-## React Compiler
+1. **ইউজার অথেনটিকেশন (Login Required for Posting)**
+   - পাঠকগণ লগইন ছাড়াই সাহিত্য পড়তে ও বই অর্ডার করতে পারবেন, কিন্তু **নতুন কবিতা, পত্র, গল্প বা বই সাবমিট করার জন্য ইউজারকে অবশ্যই লগইন করতে হবে**।
+   - নতুন লেখক রেজিস্ট্রেশন ও লগইন সরাসরি ব্যাকএন্ড ডাটাবেসের (`users` টেবিল) সাথে সংযুক্ত।
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **অ্যাডমিন প্যানেল ও কন্ট্রোল রুম (Full Admin Dashboard)**
+   - **রচনা ব্যবস্থাপনা:** সকল কবিতা, চিঠি, গল্প ও বই দেখা, হোমপেজে **নির্বাচিত (Featured)** করা, **প্রকাশিত/স্থগিত (Approve/Hide)** করা কিংবা ডাটাবেস থেকে মুছে ফেলা।
+   - **গ্রন্থবিপণি ও বই ব্যবস্থাপনা:** স্টোরে নতুন বই যুক্ত করা (`+ নতুন বই যুক্ত করুন`) এবং ক্যাটালগ নিয়ন্ত্রণ।
+   - **বইয়ের অর্ডার ব্যবস্থাপনা:** গ্রাহকদের অর্ডারের স্ট্যাটাস (`প্রক্রিয়াধীন`, `প্যাকেজিং চলছে`, `কুরিয়ারে পাঠানো হয়েছে`, `ডেলিভারি সম্পন্ন`, `বাতিল`) পরিবর্তন করা।
+   - **ব্যবহারকারী ব্যবস্থাপনা:** নিবন্ধিত ইউজারদের তালিকা দেখা এবং লেখক/অ্যাডমিন রোল পরিবর্তন।
+   - **ডাটাবেস ব্যাকআপ ও রিসেট:** এক ক্লিকে সম্পূর্ণ ডাটাবেস `JSON` ফাইল হিসেবে এক্সপোর্ট অথবা ডিফল্ট অবস্থায় রিসেট করা।
 
-## Expanding the ESLint configuration
+3. **ব্যাকএন্ড ডাটাবেস ও REST API (`server/db/sahityakanon_db.json`)**
+   - `npm run dev` চালালে স্বয়ংক্রিয়ভাবে Vite ও Node REST API প্লাগইন (`server/apiPlugin.js`) সচল হয় এবং সকল ডাটা `server/db/sahityakanon_db.json` ফাইলে স্থায়ীভাবে সংরক্ষিত হয়।
+   - অফলাইন বা স্ট্যাটিক হোস্টিংয়ের জন্য স্বয়ংক্রিয় `localStorage` ফলব্যাকও যুক্ত রয়েছে।
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. **সাহিত্য পাঠশালা ও কাস্টমাইজযোগ্য রিডার**
+   - ফন্টের আকার পরিবর্তন (`অ-` / `অ+`), ৩টি পঠন থিম (**পার্চমেন্ট**, **সাদা**, **রাত্রি**), **শ্রুতিপাঠ (Audio Recitation)**, লাইক, বুকমার্ক ও পাঠকের মন্তব্য।
+
+5. **অনলাইন গ্রন্থবিপণি ও শপিং কার্ট**
+   - বইয়ের ভেতরের অংশ পড়ে দেখার সুবিধা (**“একটু পড়ুন”**), কুপন কোড (`BOIMELA20` ব্যবহারে ২০% ছাড়), ডেলিভারি চার্জ হিসাব এবং অর্ডার রসিদ।
+
+---
+
+## 🖋️ ব্যবহৃত বাংলা ফন্ট (Typography)
+
+- **Main Font (Body):** `Hind Siliguri`
+- **Heading Font:** `Anek Bangla`
+- **Fallback Font:** `Noto Sans Bengali`
+
+---
+
+## 🚀 প্রজেক্টটি চালানোর নিয়ম (How to Run Locally)
+
+```bash
+# ১. ডিপেন্ডেন্সি ইনস্টল করুন
+npm install
+
+# ২. ডেভেলপমেন্ট সার্ভার ও ডাটাবেস API একসাথে চালু করুন
+npm run dev
+
+# ৩. প্রোডাকশন বিল্ড তৈরি করুন
+npm run build
+```

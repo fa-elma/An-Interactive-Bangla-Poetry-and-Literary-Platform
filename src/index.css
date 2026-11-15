@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-main: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+    --font-heading: 'Anek Bangla', 'Noto Sans Bengali', sans-serif;
+    --font-fallback: 'Noto Sans Bengali', sans-serif;
+  }
+
+  html {
+    font-family: var(--font-main);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+    background-color: #FAF6F0;
+    color: #1E1B18;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anek Bangla', 'Noto Sans Bengali', sans-serif;
+    line-height: 1.35;
+  }
+}
+
+.font-heading {
+  font-family: 'Anek Bangla', 'Noto Sans Bengali', sans-serif;
+}
+
+.font-main {
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+}
+
+/* Subtle paper & vintage postcard styling */
+.paper-texture {
+  background-color: #FDFBF7;
+  background-image: radial-gradient(#C89D54 0.45px, transparent 0.45px),
+    radial-gradient(#9E2A2B 0.45px, #FDFBF7 0.45px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+  background-blend-mode: soft-light;
+}
+
+.letter-ruled-paper {
+  background-color: #FCF7EB;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 35px,
+    rgba(200, 157, 84, 0.22) 36px
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3ECE1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C89D54;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9E2A2B;
+}
+
